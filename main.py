@@ -12,10 +12,15 @@ def good():
 print(good())
 
 
-get_odds = (num for num in range(1, 10) if not num % 2 == 0)
-count = 0
-for num in get_odds:
-    if count == 2:
+def get_odds():
+    for num in range(1, 10):
+        if num % 2 != 0:
+            yield num
+
+
+count = 1
+for num in get_odds():
+    if count == 3:
         print(num)
         break
     count += 1
